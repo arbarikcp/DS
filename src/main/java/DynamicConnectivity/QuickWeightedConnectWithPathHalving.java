@@ -52,7 +52,7 @@ public class QuickWeightedConnectWithPathHalving implements ConnectivityProvider
   //Log(n) time complexity
   private int getRoot(int index) {
     while (index != nodes[index]) {
-      nodes[index] = nodes[nodes[index]];  // points the current node to its grand parent.
+      nodes[index] = nodes[nodes[index]];  // points the current node to its grand parent. This makes the tree almost flat over long run
       index = nodes[index];
     }
     return index;

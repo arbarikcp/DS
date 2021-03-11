@@ -19,6 +19,7 @@ public class QuickConnect implements ConnectivityProvider {
     }
   }
 
+  //2(logn) average case time and  2 * O(n) in case of skinny tree (sequential client)
   public void connect(int src, int dest) {
 
     if(isValid(size, src,dest) && !isConnected(src, dest)){
@@ -35,6 +36,7 @@ public class QuickConnect implements ConnectivityProvider {
     return false;
   }
 
+  //O(logn) time average case, if the tree become sequential, then it is O(n)
   private int  getRoot(int src){
     int parent = src;
     while(nodes[parent] != parent){
