@@ -7,5 +7,4 @@ public interface ConnectivityProvider {
   default boolean isValid(int size, int src, int dest) {
     return src >= 0 && src < size && dest >= 0 && dest < size;
   }
-
 }
