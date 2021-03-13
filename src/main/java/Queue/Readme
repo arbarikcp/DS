@@ -1,0 +1,35 @@
+Circular Queue:
+
+1. Start with head = tail = -1  -> when there is no entry in the Queue.
+                                -> head always point to a position of element to return.
+                                -> tail always points to last inserted element, to insert new element,
+                                increase the tail then insert.
+2. For Enqueue -> ideally Increase the tail and store the element. But as it is circular Queue,
+                  we need to take a module division of the (++tail) % arrayLength.
+                  after first enqueue, set the head to 0
+3. For Dequeue -> ideally  get the element at head, then head points to next, But in circular Queue
+                  We need to get the element at head and set the head to (++head) % arraylength.
+                  -> When it is last element to dequeue, set tail = head = -1
+
+4. Queue Full: (if head == 0 && tail == length -1) or (tail = head -1)
+
+5. Queue is empty: (head == tail)
+
+6. Resize: When array is full we need to double the size -> will be checked inside enqueue method.
+          -> Keep another variable for Size , which will increment in enqueue, decrement in dequeue
+          -> Allocate a new Array of double size.
+          -> Queue is full in 2 conditions:
+            -> if (tail = head -1) -> copy from head to length-1 to new array
+                                   -> Copy from o to tail to new Array.
+            -> (if head == 0 && tail == length -1) -> copy from 0 to length-1 to new array.
+          -> Set head to 0 and tail to lastIndex.
+          -> set the Queue to point to newArray
+
+7. Shrink: When Queue size is 1/4 of the arrayLength, the half the array -> Will be called in deque method.
+          -> Create another array of half the existing array size.
+          -> Either head is behind tail -> copy  from head to tail to new array.
+          -> or tail is behind head -> copy from  head to length - 1 to new array
+                                    -> copy from 0 to tail to new array.
+
+Loitoring : -> In array based implementation, After dequeue, set the dequeued array element to null.
+              So that GC will pick it for GC.

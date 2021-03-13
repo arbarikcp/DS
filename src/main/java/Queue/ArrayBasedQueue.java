@@ -37,7 +37,9 @@ public class ArrayBasedQueue<T> implements Queue<T> {
       if(size < items.length / 4){
         shrink();
       }
-      return items[head];
+      T itemToReturn  = items[head];
+      items[head] = null;  // avoid loitering
+      return itemToReturn;
     } else {
       head = tail = -1;
       throw new Exception("Underflow");

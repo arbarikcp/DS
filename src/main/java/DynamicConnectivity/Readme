@@ -1,0 +1,28 @@
+Represent each node as the array Index. Content at Index will be the parent of the node.
+0 is the node number ,  arr[0] -> is the parent of 0th node.
+
+QuickFind: For every connect (S -> T) ->  change parent of S to T.
+                                      -> Find any element whose parent was S, change that to T.
+                                          -> O(n), for M connect operation, O(Mn)
+           For Find (S, T) -> Check if parent of S == parent of T  .O(1)
+
+            Problem: every Connect , flattens the tree . So the tree at max at one level depth.
+
+QuickConnect: Connect(S -> T) -> get RootOfS and RootOfT. Then change the parent of RootOfS to RootOfT.
+              GetRoot(node) -> We have to traverse until node == arr[node]
+
+            Problem: If the input comes as sequential, like 1->2, 2->3, 3->4... then the tree length will be lenear.
+            Average case -> O(Logn) but wrost case O(n)
+
+QuickWeightedConnect: Similar as QuickConnect, but S tree will not always be child of T tree.
+                        It will depend on the size of element in the tree.
+                        Smaller tree will be child of bigger tree.
+                        Average case -> O(Logn) but wrost case O(Logn)
+
+PathCompression: When we are finding root of any element,
+                  -> After finding the root of the element, go for another pass and change the parent of all the visited node on the path to root node.
+                  -> This will make the tree almost flat after few passes.
+
+PathCompression by Halving: The above pathCompression approach takes 2 pass for each getRoot.
+                            Instead while getting root element of any node. We can change every path nodes parent to its grant parent.
+                            This will reduce the tree size by half each time to do a getroot on that path.
