@@ -17,7 +17,7 @@ QuickConnect: Connect(S -> T) -> get RootOfS and RootOfT. Then change the parent
 QuickWeightedConnect: Similar as QuickConnect, but S tree will not always be child of T tree.
                         It will depend on the size of element in the tree.
                         Smaller tree will be child of bigger tree.
-                        Average case -> O(Logn) but wrost case O(Logn)
+                        Average case -> O(Logn) but worst case O(Logn)
 
 PathCompression: When we are finding root of any element,
                   -> After finding the root of the element, go for another pass and change the parent of all the visited node on the path to root node.

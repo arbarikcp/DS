@@ -1,0 +1,91 @@
+Java Comparable interface: has one method CompareTo(T that).
+
+Basic building block for any Sort Algorithm:
+*********************************************
+
+1. Less(Comparable a, Comparable b) -> it checks if a < b.
+2. Exchange(Comparable[] a , int pos1, int pos2)  -> Exchange 2 elements of a at pos1 and pos2.
+
+While taking Time Complexity:
+*****************************
+
+Every Sorting algorithm, does 2 basic operation, compare and exchange.
+We need to see how many compare and exchange it is doing.
+
+
+Selection Sort:
+****************
+
+Invariant: at any ith iteration 0-(i-1)  subarray is sorted and no need for any further manipulation.
+           ith position need to be exchanged with the minimum element from i to (n-1) position.
+
+Time complexity: finding minimum of an array -> n
+                 We need to do it for n times, n + n-1 + n-2 + n-3 ....+ 1 -> O(n^2)
+Time complexity remains same even if array is sorted or almost sorted.
+
+
+
+
+Insertion Sort:
+***************
+
+Invariant: at any ith iteration 0-(i-1)  subarray is sorted.
+           ith element need to compare with (i-1) to 0 th element to find its position. Everytime it
+           find an element which is greater that itself, it need to exchange.
+
+Time complexity: O(n^2)
+But will take very less time if array is sorted or partially sorted.
+
+
+Shell Sort:
+************
+
+Shell Sort is a modified version of Insertion sort. Insertion sort was slow because:
+  1.  Insertion Sort takes does lot more exchange while taking ith element and comparing
+  it against each element  (i-1)th to 0th  element, until it finds its correct position.
+
+Also We know Insertion Sort is faster on a Sorted or partial sorted array.
+
+So idea here is: Instead of sorting the array ,
+  lets do insertion sort on each h-th subarray ->  end result is a subarray having each hth element sorted.
+  decrease hh value and do the insertion sort ->   ....
+  Until h becomes 1.
+
+Ideal value for h = 3x + 1 until  h < n/3.   So h sequence is (1,4,13,40....)
+
+    //Best known increment sequence 3n + 1 -> ((n+1) increment sequence is 3n +1 )
+    // n = 0, sequence length = 1
+    //n = 1, Sequence length = 4
+    //n = 4, sequence length = 13
+    //n = 5, sequence length = 40
+
+
+Start with heighest possible value for h for the given array. Do h-insertion sort the array.
+then reduce h to h/3 -> Do h-insertion sort the array.
+until h becomes 1
+
+Each step is producing array which is more sorted that previous one. And Insertion sort works better
+with sorted/partially sorted array.
+
+
+Shuffling:
+*************
+
+1. Generate one random double number for each array element. and sort the array based on that random numbers.
+
+2. For ith iteration, find an Secure random number from i+1 to n-1 , then exchange ith element with that.
+
+Random vs SecureRandom:
+***********************
+
+->Random uses System clock to generate seed. which we can guess.
+->SecureRandom uses few other system param,like mouse clicks, gaps between keystrokes,
+  and generates seed based on that. and stores it in /dev/random.
+-> Seed length of Random is 48 bit. Seed length of Secure random is 128bits.
+->Secure random takes 2^128 attempt to guess. random takes 2^48 attempt to guess.
+
+
+
+
+
+

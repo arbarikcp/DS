@@ -31,5 +31,5 @@ Circular Queue:
           -> or tail is behind head -> copy from  head to length - 1 to new array
                                     -> copy from 0 to tail to new array.
 
-Loitoring : -> In array based implementation, After dequeue, set the dequeued array element to null.
+Loitering : -> In array based implementation, After dequeue, set the dequeued array element to null.
               So that GC will pick it for GC.
