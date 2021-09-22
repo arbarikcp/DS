@@ -1,0 +1,4 @@
+1. What is the difference between HashTable and HashMap?
+  HashMap: not threadsafe, allows one null key. (considers hash(null) as o)
+  Hashtable: threadsafe, don't allow null key or value.
+
