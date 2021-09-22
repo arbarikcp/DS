@@ -1,4 +1,4 @@
-package Streaming.Basic.Api.Model.Spec;
+package Streaming.Basic.Api.Model;
 
 import java.util.ArrayList;
 import java.util.List;

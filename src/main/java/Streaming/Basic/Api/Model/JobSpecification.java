@@ -1,11 +1,11 @@
-package Streaming.Basic.Api.Model.Spec;
+package Streaming.Basic.Api.Model;
 
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
 
 
-public class Job {
+public class JobSpecification {
 
   @Getter
   private String name;
@@ -13,9 +13,9 @@ public class Job {
   @Getter
   private List<Source> sources;
 
-  public Job(String name) {
+  public JobSpecification(String name) {
     this.name = name;
-    this.sources = new ArrayList<Source>();
+    this.sources = new ArrayList();
   }
 
   public void addSource(Source source){
