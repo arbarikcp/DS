@@ -26,6 +26,6 @@ public class OperatorExecutor extends ComponentExecutor {
       System.out.println("failure in " + getName());
       return false;
     }
-    return false;
+    return true;
   }
 }
